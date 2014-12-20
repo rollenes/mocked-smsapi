@@ -1,0 +1,13 @@
+{
+    "name": "rollenes/smsapi-mocked",
+    "require": {
+        "coduo/tutu": "~1.0@dev"
+    },
+    "authors": [
+        {
+            "name": "Rafał Wartalski",
+            "email": "rafal.wartalski@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
