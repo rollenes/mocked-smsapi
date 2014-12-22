@@ -1,0 +1,6 @@
+hello_world_get:
+  request:
+    path: /hello/world
+    methods: ['GET']
+  response:
+    content: @resources/hello-world.html.twig
