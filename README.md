@@ -3,3 +3,17 @@
 Webservice mock for SMSAPI rest interface.
 
 Based on TUTU (https://github.com/coduo/TuTu)
+
+Installation: 
+
+```
+composer install
+```
+
+Usage:
+
+To run it go to base directory and run:
+
+```
+php -S localhost:8000
+```
