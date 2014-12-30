@@ -1,6 +1,6 @@
-hello_world_get:
+ping:
   request:
-    path: /hello/world
-    methods: ['GET']
+    path: /ping
   response:
-    content: @resources/hello-world.html.twig
+    content: |
+      pong
