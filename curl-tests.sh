@@ -1,4 +1,5 @@
 #!/bin/sh
+
 base_address=http://localhost:8000
 
 if [ ! -z "$1" ]
@@ -15,13 +16,22 @@ ping=`curl -sS $base_address/ping 2>&1`
 
 if [ $? -ne 0 ]
     then
-        echo ping - $ping
+        echo curl failed with message: \"$ping\"
         exit 1
 fi
 
-if [ "$ping" != "pong" ]
+if [ "pong" != "$ping" ]
     then
         echo ${RED}[NOT OK] - Expected to get \"pong\" . Got: \"$ping\"${NC}
     else
         echo ${GREEN}[OK] - ping${NC}
+fi
+
+#unknown resource
+unknown_resource=`curl -s -o /dev/null -w "%{http_code}" $base_address/unknown_resource -X POST`
+if [ 404 != $unknown_resource ]
+    then
+        echo ${RED}[NOT OK] - Expected to get \"Unknown resource\" . Got: \"$unknown_resource\" ${NC}
+    else
+        echo ${GREEN}[OK] - unknown resource${NC}
 fi
