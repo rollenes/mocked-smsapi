@@ -35,3 +35,15 @@ assert_equal "pong" ${ping} "ping"
 unknown_resource=`curl -s -o /dev/null -w "%{http_code}" ${base_address}/unknown_resource -X POST`
 
 assert_equal 404 ${unknown_resource} "unknown resuorce"
+
+#send sms
+send_sms=`curl -s ${base_address}/sms.do \
+    --data format=json \
+    --data username=registered \
+    --data password=200f200f200f200f200f200f200f200f \
+    --data to=600000000 \
+    --data-urlencode message='Zażółć gęślą jaźń' \
+    --data encoding=utf-8 \
+    2>&1`
+
+assert_equal '{"count":1,"list":[{"id":"1430960475929952160","points":0.065,"number":"48600000000","submitted_number":"600000000","status":"QUEUE","error":null,"idx":null}]}' ${send_sms} "send_sms"

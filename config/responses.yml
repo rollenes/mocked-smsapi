@@ -4,3 +4,18 @@ ping:
   response:
     content: |
       pong
+
+send_sms:
+  request:
+    path: /sms.do
+    methods: ['POST']
+    request:
+      format: json
+      username: registered
+      password: 200f200f200f200f200f200f200f200f
+      to: '600000000'
+      message: 'Zażółć gęślą jaźń'
+      encoding: utf-8
+  response:
+    content: |
+      {"count":1,"list":[{"id":"1430960475929952160","points":0.065,"number":"48600000000","submitted_number":"600000000","status":"QUEUE","error":null,"idx":null}]}
