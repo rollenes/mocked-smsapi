@@ -5,7 +5,23 @@ ping:
     content: |
       pong
 
-send_sms:
+custom_sender_sms:
+  request:
+    path: /sms.do
+    methods: ['POST']
+    request:
+      format: json
+      username: registered
+      password: 200f200f200f200f200f200f200f200f
+      from: Sender
+      to: '600000000'
+      message: 'Zażółć gęślą jaźń'
+      encoding: utf-8
+  response:
+    content: |
+      {"count":1,"list":[{"id":"1431037279135587730","points":0.15,"number":"48600000000","submitted_number":"600000000","status":"QUEUE","error":null,"idx":null}]}
+
+default_sender_sms:
   request:
     path: /sms.do
     methods: ['POST']
